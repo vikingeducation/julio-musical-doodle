@@ -167,5 +167,27 @@ The [Faker gem](https://github.com/stympy/faker) has been provided for you to ma
 ## Good Luck!
 
 
+Employee
 
+-has_many :memberships
 
+has_many :teams
+has_many :progress_reports
+has_many :owned_teams
+
+Team
+-owner_id
+
+belongs_to :owner
+has_many :members
+has_many :progress_reports
+
+Report
+author_id
+team_id
+belongs_to :author
+belongs_to :team
+
+Membership
+-employee_id
+-team_id
