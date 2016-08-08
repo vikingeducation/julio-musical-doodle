@@ -11,6 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160808155132) do
+
+  create_table "employee_teams", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "team_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "employee_teams", ["employee_id"], name: "index_employee_teams_on_employee_id"
+  add_index "employee_teams", ["team_id"], name: "index_employee_teams_on_team_id"
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "owner_teams", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.integer  "team_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "owner_teams", ["employee_id"], name: "index_owner_teams_on_employee_id"
+  add_index "owner_teams", ["team_id"], name: "index_owner_teams_on_team_id"
+
+  create_table "progress_reports", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "authors_id"
+    t.integer  "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "progress_reports", ["authors_id"], name: "index_progress_reports_on_authors_id"
+  add_index "progress_reports", ["team_id"], name: "index_progress_reports_on_team_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "employee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
