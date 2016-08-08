@@ -8,7 +8,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard'
   gem 'guard-rspec'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', :require => false
   gem 'database_cleaner'
 end
 
