@@ -24,7 +24,3 @@ MULTIPLIER.times do
     end
   end
 end
-
-
-Team.all.each do |t|
-end
