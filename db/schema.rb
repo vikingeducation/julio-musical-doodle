@@ -11,6 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160808154620) do
+
+  create_table "employees", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "employee_id"
+  end
+
+  add_index "employees", ["employee_id"], name: "index_employees_on_employee_id"
+
+  create_table "progress_reports", force: :cascade do |t|
+    t.text     "body"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "employee_id"
+    t.integer  "team_id"
+  end
+
+  add_index "progress_reports", ["employee_id"], name: "index_progress_reports_on_employee_id"
+  add_index "progress_reports", ["team_id"], name: "index_progress_reports_on_team_id"
+  add_index "progress_reports", ["user_id"], name: "index_progress_reports_on_user_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "employee_id"
+  end
+
+  add_index "teams", ["employee_id"], name: "index_teams_on_employee_id"
 
 end
