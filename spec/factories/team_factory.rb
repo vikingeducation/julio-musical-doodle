@@ -5,4 +5,4 @@ FactoryGirl.define do
     updated_at { FactoryHelper.random_date_between_now_and_past }
   end
 end
-
+#
