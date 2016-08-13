@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808155421) do
+ActiveRecord::Schema.define(version: 20160808154415) do
 
   create_table "employees", force: :cascade do |t|
     t.string   "first_name"
@@ -23,13 +23,13 @@ ActiveRecord::Schema.define(version: 20160808155421) do
 
   create_table "progress_reports", force: :cascade do |t|
     t.text     "body"
-    t.integer  "author_id"
+    t.integer  "employee_id"
     t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  add_index "progress_reports", ["author_id"], name: "index_progress_reports_on_author_id"
+  add_index "progress_reports", ["employee_id"], name: "index_progress_reports_on_employee_id"
   add_index "progress_reports", ["team_id"], name: "index_progress_reports_on_team_id"
 
   create_table "teamings", force: :cascade do |t|
