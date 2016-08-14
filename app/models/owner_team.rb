@@ -1,4 +1,4 @@
 class OwnerTeam < ActiveRecord::Base
-  belongs_to :employees
-  belongs_to :teams
+  belongs_to :employee
+  belongs_to :team
 end
