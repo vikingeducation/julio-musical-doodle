@@ -19,6 +19,6 @@ end
   e = ProgressReport.create(author_id: Employee.all.sample.id, team_id: Team.all.sample.id)
 end
 
-10.times do
+30.times do
   e = Membership.create(employee_id: Employee.all.sample.id, team_id: Team.all.sample.id)
 end
