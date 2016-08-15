@@ -5,9 +5,6 @@ class CreateEmployees < ActiveRecord::Migration
       t.string :last_name
       t.string :email
 
-      
-
-
       t.timestamps null: false
     end
   end
